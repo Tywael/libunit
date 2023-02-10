@@ -99,21 +99,21 @@ $(BUILDDIR):
 
 ${NAME} .SILENT: $(BUILDDIR) $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
-	@echo "$(_OK) $(NAME) \t\tcompiled"
+	@printf "$(_OK) $(NAME) \t\tcompiled\n"
 
 $(BUILDDIR)%.o:$(SRCDIR)%.c
-	@echo "[..] $(NAME)... compiling $*.c\r\c"
+	@printf "[..] $(NAME)... compiling $*.c\r\c\n"
 	@$(CC) -c $(CFLAGS) $(HEADS) $< -o $@
-	@echo "$(_CLEAR)"
+	@printf "$(_CLEAR)\n"
 
 clean:
-	@echo "[..] $(NAME)... removing $*.c\r\c"
+	@printf "[..] $(NAME)... removing $*.c\r\c\n"
 	@rm -rf $(BUILDDIR)
-	@echo "$(_CLEAR)"
+	@printf "$(_CLEAR)\n"
 
 fclean: clean
 	@rm -rf $(NAME)
-	@echo "$(_RM) $(NAME) \t\tfull clean"
+	@printf "$(_RM) $(NAME) \t\tfull clean\n"
 
 re: fclean all
 .PHONY 	: 	all clean fclean re bonus

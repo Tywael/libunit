@@ -79,28 +79,28 @@ color:
 
 $(NAME): $(LIBFT_DIR)/$(LIBFT) $(_OBJS)
 	@$(CC) $(_OBJS) $(LIBFT_DIR)/$(LIBFT) $(LFLAGS) -o $(NAME)
-	@echo "$(_OK) $(NAME) \t\tcompiled"
+	@printf "$(_OK) $(NAME) \t\tcompiled\n"
 
 $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c
-	@echo "[..] $(NAME)... compiling $*.c\r\c"
+	@printf "[..] $(NAME)... compiling $*.c\r\c\n"
 	@mkdir -p $(DIRS)
 	@$(CC) -c $(CFLAGS) $< -o $@
-	@echo "$(_CLEAR)"
+	@printf "$(_CLEAR)\n"
 
 $(LIBFT_DIR)/$(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR) all
 	@$(MAKE) -C $(LIBFT_DIR) bonus
 
 clean:
-	@echo "[..] $(NAME)... removing $*.c\r\c"
+	@printf "[..] $(NAME)... removing $*.c\r\c\n"
 	@rm -rf $(OBJS_DIR)
 	@$(MAKE) -C $(LIBFT_DIR) clean
-	@echo "$(_CLEAR)"
+	@printf "$(_CLEAR)\n"
 
 fclean:
 	@rm -rf $(OBJS_DIR) $(NAME)
 	@$(MAKE) -C $(LIBFT_DIR) fclean
-	@echo "$(_RM) $(NAME) \t\tfull clean"
+	@printf "$(_RM) $(NAME) \t\tfull clean\n"
 
 re: fclean all
 
