@@ -61,8 +61,8 @@ color:
 	@echo
 	@echo use printf
 	@echo
-	@printf "_COLOR $(_COLOR)\n"
-	@printf "_BOLDCOLOR $(_BOLDCOLOR)\n"
+	@printf "_COLOR $(_COLOR) COLOR _RESET $(_RESET) NO_COLOR\n"
+	@printf "_BOLDCOLOR $(_BOLDCOLOR) _RESET $(_RESET) NO_COLOR\n"
 	@printf "_RESET $(_RESET)\n"
 	@printf "_CLEAR $(_CLEAR)\n"
 	@printf "_OK $(_OK)\n"
