@@ -57,6 +57,26 @@ debug: LFLAGS += $(DEBUG_LFLAGS)
 debug: CFLAGS += $(DEBUG_CFLAGS)
 debug: fclean $(NAME)
 
+color:
+	@echo
+	@echo use printf
+	@echo
+	@printf "_COLOR $(_COLOR)\n"
+	@printf "_BOLDCOLOR $(_BOLDCOLOR)\n"
+	@printf "_RESET $(_RESET)\n"
+	@printf "_CLEAR $(_CLEAR)\n"
+	@printf "_OK $(_OK)\n"
+	@printf "_RM $(_RM)\n"
+	@echo
+	@echo use echo
+	@echo
+	@echo "_COLOR $(_COLOR)"
+	@echo "_BOLDCOLOR $(_BOLDCOLOR)"
+	@echo "_RESET $(_RESET)"
+	@echo "_CLEAR $(_CLEAR)"
+	@echo "_OK $(_OK)"
+	@echo "_RM $(_RM)"
+
 $(NAME): $(LIBFT_DIR)/$(LIBFT) $(_OBJS)
 	@$(CC) $(_OBJS) $(LIBFT_DIR)/$(LIBFT) $(LFLAGS) -o $(NAME)
 	@echo "$(_OK) $(NAME) \t\tcompiled"
