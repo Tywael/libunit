@@ -44,7 +44,7 @@ UNAME = $(shell uname -s)
 _COLOR		= \033[32m
 _BOLDCOLOR	= \033[32;1m
 _RESET		= \033[0m
-_CLEAR		= \033[0K\r\c
+_CLEAR		= \033[0K
 _OK			= [\033[32mOK\033[0m]
 _RM			= [\033[31mRM\033[0m]
 
@@ -82,7 +82,7 @@ $(NAME): $(LIBFT_DIR)/$(LIBFT) $(_OBJS)
 	@printf "$(_OK) $(NAME) \t\tcompiled\n"
 
 $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c
-	@printf "[..] $(NAME)... compiling $*.c\r\c\n"
+	@printf "[..] $(NAME)... compiling $*.c\n"
 	@mkdir -p $(DIRS)
 	@$(CC) -c $(CFLAGS) $< -o $@
 	@printf "$(_CLEAR)\n"
@@ -92,7 +92,7 @@ $(LIBFT_DIR)/$(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR) bonus
 
 clean:
-	@printf "[..] $(NAME)... removing $*.c\r\c\n"
+	@printf "[..] $(NAME)... removing $*.c\n"
 	@rm -rf $(OBJS_DIR)
 	@$(MAKE) -C $(LIBFT_DIR) clean
 	@printf "$(_CLEAR)\n"

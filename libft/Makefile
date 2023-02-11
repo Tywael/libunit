@@ -84,7 +84,7 @@ MKDIR	= mkdir -p
 _COLOR		= \033[32m
 _BOLDCOLOR	= \033[32;1m
 _RESET		= \033[0m
-_CLEAR		= \033[0K\r\c
+_CLEAR		= \033[0K
 _OK			= [\033[32mOK\033[0m]
 _RM			= [\033[31mRM\033[0m]
 
@@ -102,12 +102,11 @@ ${NAME} .SILENT: $(BUILDDIR) $(OBJS)
 	@printf "$(_OK) $(NAME) \t\tcompiled\n"
 
 $(BUILDDIR)%.o:$(SRCDIR)%.c
-	@printf "[..] $(NAME)... compiling $*.c\r\c\n"
+	@printf "[..] $(NAME)... compiling $*.c\n"
 	@$(CC) -c $(CFLAGS) $(HEADS) $< -o $@
-	@printf "$(_CLEAR)\n"
 
 clean:
-	@printf "[..] $(NAME)... removing $*.c\r\c\n"
+	@printf "[..] $(NAME)... removing $*.c\n"
 	@rm -rf $(BUILDDIR)
 	@printf "$(_CLEAR)\n"
 
