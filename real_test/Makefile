@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libunit.a
+NAME = realtest
 
 SRCS = main.c
 
@@ -27,14 +27,13 @@ _OBJS = $(addprefix $(OBJS_DIR)/, $(OBJS))
 
 HEADERS = inc
 
-LIBFT = libft.a
-LIBFT_DIR = libft
+FRAMEWORK = ./../framework
 
 MAKE = make --no-print-directory
 CC = gcc
 
-CFLAGS = -I $(HEADERS) -I $(LIBFT_DIR)/inc -Wall -Wextra -Werror
-LFLAGS = $(CFLAGS)
+CFLAGS = -I $(HEADERS) -I $(FRAMEWORK)/inc -Wall -Wextra -Werror
+LFLAGS = $(CFLAGS) -L $(FRAMEWORK)
 
 DEBUG_CFLAGS = -g3 -fsanitize=address -fno-omit-frame-pointer
 
@@ -57,8 +56,8 @@ debug: LFLAGS += $(DEBUG_LFLAGS)
 debug: CFLAGS += $(DEBUG_CFLAGS)
 debug: fclean $(NAME)
 
-$(NAME): $(LIBFT_DIR)/$(LIBFT) $(_OBJS)
-	@ar rcs $(NAME) $(_OBJS)
+$(NAME): framework $(_OBJS)
+	@$(CC) $(_OBJS)  $(LFLAGS) -o $(NAME)
 	@echo "$(_OK) $(NAME) \t\tcompiled"
 
 $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c
@@ -67,19 +66,18 @@ $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c
 	@$(CC) -c $(CFLAGS) $< -o $@
 	@echo "$(_CLEAR)"
 
-$(LIBFT_DIR)/$(LIBFT):
-	@$(MAKE) -C $(LIBFT_DIR) all
-	@$(MAKE) -C $(LIBFT_DIR) bonus
+framework:
+	@$(MAKE) -C $(FRAMEWORK) all
 
 clean:
 	@echo "[..] $(NAME)... removing $*.c\r\c"
 	@rm -rf $(OBJS_DIR)
-	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(MAKE) -C $(FRAMEWORK) clean
 	@echo "$(_CLEAR)"
 
 fclean:
 	@rm -rf $(OBJS_DIR) $(NAME)
-	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(MAKE) -C $(FRAMEWORK) fclean
 	@echo "$(_RM) $(NAME) \t\tfull clean"
 
 re: fclean all
