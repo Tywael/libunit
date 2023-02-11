@@ -85,7 +85,6 @@ $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c
 	@printf "[..] $(NAME)... compiling $*.c\n"
 	@mkdir -p $(DIRS)
 	@$(CC) -c $(CFLAGS) $< -o $@
-	@printf "$(_CLEAR)\n"
 
 $(LIBFT_DIR)/$(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR) all
@@ -95,7 +94,6 @@ clean:
 	@printf "[..] $(NAME)... removing $*.c\n"
 	@rm -rf $(OBJS_DIR)
 	@$(MAKE) -C $(LIBFT_DIR) clean
-	@printf "$(_CLEAR)\n"
 
 fclean:
 	@rm -rf $(OBJS_DIR) $(NAME)
