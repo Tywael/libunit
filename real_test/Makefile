@@ -57,7 +57,7 @@ debug: CFLAGS += $(DEBUG_CFLAGS)
 debug: fclean $(NAME)
 
 $(NAME): framework $(_OBJS)
-	@$(CC) $(_OBJS)  $(LFLAGS) -o $(NAME)
+	@$(CC) $(_OBJS) ../framework/libunit.a  $(LFLAGS) -o $(NAME)
 	@echo "$(_OK) $(NAME) \t\tcompiled"
 
 $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c
