@@ -4,7 +4,10 @@
 
 #include "libunit.h"
 
-int main(void)
+
+int ft_test()
 {
+    char *str = "Salut";
+    printf("%li\n", ft_strlen(str));
     return (0);
 }

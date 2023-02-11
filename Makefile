@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libunit
+NAME = libunit.a
 
 SRCS = main.c
 
@@ -58,7 +58,7 @@ debug: CFLAGS += $(DEBUG_CFLAGS)
 debug: fclean $(NAME)
 
 $(NAME): $(LIBFT_DIR)/$(LIBFT) $(_OBJS)
-	@$(CC) $(_OBJS) $(LIBFT_DIR)/$(LIBFT) $(LFLAGS) -o $(NAME)
+	@ar rcs $(NAME) $(_OBJS)
 	@echo "$(_OK) $(NAME) \t\tcompiled"
 
 $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c
