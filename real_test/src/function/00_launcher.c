@@ -7,6 +7,6 @@ int function_launcher(void)
 
 	load_test(&testlist, "a test function", &a_test_function);
 	load_test(&testlist, "another test function", &another_test_function);
-    load_test(&testlist, "crash test function", &crash_test_function);
+    load_test(&testlist, "segv test function", &segv_test_function);
 	return(launch_tests(&testlist));
 }
