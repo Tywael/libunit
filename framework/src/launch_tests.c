@@ -3,25 +3,25 @@
 
 static void do_test(t_unit_test *testlist)
 {
-    pid_t pid;
-    int sig;
-    int res;
+	pid_t pid;
+	int sig;
+	int res;
 
-    testlist->result = unknown;
-    pid = fork();
-    if (!pid) {
-        res = testlist->test_function();
-        if (res == 1)
-            exit(1);
-        exit(0);
-    }
-    else
-    {
-        pid = wait(&sig);
-        if (!pid)
-            return ;
-        testlist->result = catch_res(sig);
-    }
+	testlist->result = unknown;
+	pid = fork();
+	if (!pid) {
+		res = testlist->test_function();
+		if (res == 1)
+			exit(1);
+		exit(0);
+	}
+	else
+	{
+		pid = wait(&sig);
+		if (!pid)
+			return ;
+		testlist->result = catch_res(sig);
+	}
 }
 
 static void print_result(t_unit_test *testlist)
@@ -33,20 +33,20 @@ static void print_result(t_unit_test *testlist)
 		ft_putstr_fd("[OK]\n", 1);
 	else if (testlist->result == KO)
 		ft_putstr_fd("[KO]\n", 1);
-    else if (testlist->result == sigsegv)
-        ft_putstr_fd("[SEGV]\n", 1);
-    else if (testlist->result == sigbus)
-        ft_putstr_fd("[BUS]\n", 1);
-    else if (testlist->result == sigabrt)
-        ft_putstr_fd("[ABRT]\n", 1);
-    else if (testlist->result == sigfpe)
-        ft_putstr_fd("[FPE]\n", 1);
-    else if (testlist->result == sigpip)
-        ft_putstr_fd("[PIP]\n", 1);
-    else if (testlist->result == sigill)
-        ft_putstr_fd("[ILL]\n", 1);
-    else
-        ft_putstr_fd("\n", 1);
+	else if (testlist->result == sigsegv)
+		ft_putstr_fd("[SEGV]\n", 1);
+	else if (testlist->result == sigbus)
+		ft_putstr_fd("[BUS]\n", 1);
+	else if (testlist->result == sigabrt)
+		ft_putstr_fd("[ABRT]\n", 1);
+	else if (testlist->result == sigfpe)
+		ft_putstr_fd("[FPE]\n", 1);
+	else if (testlist->result == sigpip)
+		ft_putstr_fd("[PIP]\n", 1);
+	else if (testlist->result == sigill)
+		ft_putstr_fd("[ILL]\n", 1);
+	else
+		ft_putstr_fd("\n", 1);
 }
 
 static void free_node(t_unit_test *testlist)
