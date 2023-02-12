@@ -5,7 +5,6 @@ int another_test_function(void);
 
 int strlen_launcher(void)
 {
-	ft_putstr_fd("strlen_launcher\n", 1);
 	t_unit_test *testlist = 0;
 
 	load_test(&testlist, "a test function", &a_test_function);
