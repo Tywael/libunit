@@ -16,6 +16,7 @@ SRCS = main.c
 SRCS += function/00_launcher.c
 SRCS += function/01_a_test_function.c
 SRCS += function/02_another_test_function.c
+SRCS += function/03_crash_test_function.c
 
 
 SRCS_DIR = src
@@ -56,8 +57,6 @@ all: $(NAME)
 fast: CFLAGS += -Ofast
 fast: $(NAME)
 
-LFLAGS += $(DEBUG_LFLAGS)
-CFLAGS += $(DEBUG_CFLAGS)
 
 $(NAME): framework $(_OBJS)
 	@$(CC) $(_OBJS) $(FRAMEWORK)/libunit.a $(LIBFT)/libft.a $(LFLAGS) -o $(NAME)
