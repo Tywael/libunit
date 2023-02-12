@@ -3,8 +3,7 @@
 //
 
 #include "libunit.h"
-
-int function_launcher(void);
+#include "tests.h"
 
 int main(void)
 {

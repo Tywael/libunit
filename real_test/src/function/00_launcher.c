@@ -1,7 +1,5 @@
 #include "libunit.h"
-
-int a_test_function(void);
-int another_test_function(void);
+#include "tests.h"
 
 int function_launcher(void)
 {
