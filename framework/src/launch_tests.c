@@ -3,13 +3,13 @@
 
 static void do_test(t_unit_test *testlist)
 {
-    int n;
+    pid_t pid;
     int sig;
     int res;
 
-    testlist->result = -1;
-    n = fork();
-    if (!n) {
+    testlist->result = unknown;
+    pid = fork();
+    if (!pid) {
         res = testlist->test_function();
         if (res == 1)
             exit(1);
@@ -17,8 +17,8 @@ static void do_test(t_unit_test *testlist)
     }
     else
     {
-        n = wait(&sig);
-        if (!n)
+        pid = wait(&sig);
+        if (!pid)
             return ;
         testlist->result = catch_res(sig);
     }
