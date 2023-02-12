@@ -32,6 +32,7 @@ static void last_line(t_unit_test *testlist)
 	success = 0;
 	while (testlist && ++tests && (testlist->result || ++success))
 		testlist = testlist->next;
+	ft_putstr_fd("\n", 1);
 	ft_putnbr_fd(success, 1);
 	ft_putstr_fd("/", 1);
 	ft_putnbr_fd(tests, 1);
