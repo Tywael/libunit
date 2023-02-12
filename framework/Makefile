@@ -12,7 +12,8 @@
 
 NAME = libunit.a
 
-SRCS = main.c
+SRCS += load_test.c
+SRCS += launch_tests.c
 
 
 SRCS_DIR = src
