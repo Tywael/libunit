@@ -8,5 +8,5 @@
 int main(void)
 {
 	function_launcher();
-    return (0);
+	return (0);
 }
