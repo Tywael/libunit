@@ -21,7 +21,8 @@ enum e_result
     sigabrt,
     sigfpe,
     sigpip,
-    sigill
+    sigill,
+    unknown = -1
 };
 typedef enum e_result t_result;
 
@@ -41,7 +42,7 @@ typedef struct s_unit_test t_unit_test;
 void load_test(t_unit_test **testlist, const char * name, int (*function_test)(void));
 
 /* signal */
-int catch_res(int signal);
+enum e_result catch_res(int signal);
 
 /* launch_test */
 int launch_tests(t_unit_test **testlist);
