@@ -6,7 +6,7 @@
 #define LIBUNIT_LIBUNIT_H
 
 #include <stdlib.h>
-#include "../libft/inc/libft.h"
+#include "libft.h"
 
 /* enumation result */
 enum e_result

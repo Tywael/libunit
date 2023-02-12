@@ -26,7 +26,7 @@ SRCS_DIR = src
 OBJS = $(SRCS:.c=.o)
 OBJS_DIR = obj
 
-DIRS = obj function
+DIRS = obj obj/function
 
 _SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS))
 _OBJS = $(addprefix $(OBJS_DIR)/, $(OBJS))
@@ -34,11 +34,12 @@ _OBJS = $(addprefix $(OBJS_DIR)/, $(OBJS))
 HEADERS = inc
 
 FRAMEWORK = ./../framework
+LIBFT = ./../framework/libft
 
 MAKE = make --no-print-directory
 CC = gcc
 
-CFLAGS = -I $(HEADERS) -I $(FRAMEWORK)/inc -Wall -Wextra -Werror
+CFLAGS = -I $(HEADERS) -I $(FRAMEWORK)/inc -I$(LIBFT)/inc -Wall -Wextra -Werror
 LFLAGS = $(CFLAGS) -L $(FRAMEWORK)
 
 DEBUG_CFLAGS = -g3 -fsanitize=address -fno-omit-frame-pointer
@@ -63,7 +64,7 @@ debug: CFLAGS += $(DEBUG_CFLAGS)
 debug: fclean $(NAME)
 
 $(NAME): framework $(_OBJS)
-	@$(CC) $(_OBJS) ../framework/libunit.a ../libft/libft.a $(LFLAGS) -o $(NAME)
+	@$(CC) $(_OBJS) $(FRAMEWORK)/libunit.a $(LIBFT)/libft.a $(LFLAGS) -o $(NAME)
 	@echo "$(_OK) $(NAME) \t\tcompiled"
 
 $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c
