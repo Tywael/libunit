@@ -6,6 +6,9 @@
 #define LIBUNIT_LIBUNIT_H
 
 #include <stdlib.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
 #include "libft.h"
 
 /* enumation result */
@@ -13,6 +16,12 @@ enum e_result
 {
 	OK,
 	KO,
+    sigsegv,
+    sigbus,
+    sigabrt,
+    sigfpe,
+    sigpip,
+    sigill
 };
 typedef enum e_result t_result;
 
@@ -30,6 +39,9 @@ typedef struct s_unit_test t_unit_test;
 
 /* load_test */
 void load_test(t_unit_test **testlist, const char * name, int (*function_test)(void));
+
+/* signal */
+int catch_res(int signal);
 
 /* launch_test */
 int launch_tests(t_unit_test **testlist);

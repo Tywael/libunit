@@ -15,6 +15,7 @@ NAME = libunit.a
 SRCS += load_test.c
 SRCS += launch_tests.c
 SRCS += utils_s_unit_test.c
+SRCS += signal.c
 
 
 SRCS_DIR = src
@@ -54,9 +55,6 @@ all: $(NAME)
 
 fast: CFLAGS += -Ofast
 fast: $(NAME)
-
-LFLAGS += $(DEBUG_LFLAGS)
-CFLAGS += $(DEBUG_CFLAGS)
 
 $(NAME): $(LIBFT_DIR)/$(LIBFT) $(_OBJS)
 	@ar rcs $(NAME) $(_OBJS)
