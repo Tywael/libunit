@@ -23,11 +23,27 @@ static void free_node(t_unit_test *testlist)
 	free(testlist);
 }
 
+static void last_line(t_unit_test *testlist)
+{
+	int	tests;
+	int success;
+
+	tests = 0;
+	success = 0;
+	while (testlist && ++tests && (testlist->result || ++success))
+		testlist = testlist->next;
+	ft_putnbr_fd(success, 1);
+	ft_putstr_fd("/", 1);
+	ft_putnbr_fd(tests, 1);
+	ft_putstr_fd(" tests checked\n", 1);
+}
+
 int launch_tests(t_unit_test **testlist)
 {
 	ft_putstr_fd("launch_tests\n", 1);
 	iter_list(*testlist, &do_test);
 	iter_list(*testlist, &print_result);
+	last_line(*testlist);
 	iter_list(*testlist, &free_node);
 	ft_putstr_fd("end launch_tests\n", 1);
 	return (0);
