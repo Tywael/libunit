@@ -14,11 +14,8 @@ NAME = realtest
 
 SRCS = main.c
 SRCS += function/00_launcher.c
-SRCS += 01_a_test_function.c
-SRCS += 02_another_test_function.c
-#SRCS += function/00_launcher.c
-#SRCS += function/01_a_test_function.c
-#SRCS += function/02_another_test_function.c
+SRCS += function/01_a_test_function.c
+SRCS += function/02_another_test_function.c
 
 
 SRCS_DIR = src
