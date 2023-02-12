@@ -74,10 +74,12 @@ $(LIBFT_DIR)/$(LIBFT):
 clean:
 	@echo "[..] $(NAME)... removing $*.c\r\c"
 	@rm -rf $(OBJS_DIR)
+	@$(MAKE) -C $(LIBFT_DIR) clean
 	@echo "$(_CLEAR)"
 
 fclean:
 	@rm -rf $(OBJS_DIR) $(NAME)
+	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@echo "$(_RM) $(NAME) \t\tfull clean"
 
 re: fclean all
