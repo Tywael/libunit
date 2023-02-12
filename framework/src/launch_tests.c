@@ -8,7 +8,7 @@ static void do_test(t_unit_test *testlist)
 
 static void print_result(t_unit_test *testlist)
 {
-	ft_putstr_fd("strlen : ", 1);
+	ft_putstr_fd("function : ", 1);
 	ft_putstr_fd(testlist->test_name, 1);
 	ft_putstr_fd(" : ", 1);
 	if (testlist->result == OK)
