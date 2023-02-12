@@ -6,7 +6,7 @@
 #    By: yalthaus <yalthaus@42lausanne.ch>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/10 17:31:55 by yalthaus          #+#    #+#              #
-#    Updated: 2023/02/12 02:24:39 by melogr@phy       ###   ########.fr        #
+#    Updated: 2023/02/12 04:02:11 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,9 +56,8 @@ all: $(NAME)
 fast: CFLAGS += -Ofast
 fast: $(NAME)
 
-debug: LFLAGS += $(DEBUG_LFLAGS)
-debug: CFLAGS += $(DEBUG_CFLAGS)
-debug: fclean $(NAME)
+LFLAGS += $(DEBUG_LFLAGS)
+CFLAGS += $(DEBUG_CFLAGS)
 
 $(NAME): framework $(_OBJS)
 	@$(CC) $(_OBJS) $(FRAMEWORK)/libunit.a $(LIBFT)/libft.a $(LFLAGS) -o $(NAME)

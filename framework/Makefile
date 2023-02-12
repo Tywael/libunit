@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    libunit                                            :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: yalthaus <yalthaus@42lausanne.ch>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/10 17:31:55 by yalthaus          #+#    #+#              #
-#    Updated: 2023/02/10 17:36:51 by yalthaus         ###   ########.fr        #
+#    Updated: 2023/02/12 04:01:57 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,9 +55,8 @@ all: $(NAME)
 fast: CFLAGS += -Ofast
 fast: $(NAME)
 
-debug: LFLAGS += $(DEBUG_LFLAGS)
-debug: CFLAGS += $(DEBUG_CFLAGS)
-debug: fclean $(NAME)
+LFLAGS += $(DEBUG_LFLAGS)
+CFLAGS += $(DEBUG_CFLAGS)
 
 $(NAME): $(LIBFT_DIR)/$(LIBFT) $(_OBJS)
 	@ar rcs $(NAME) $(_OBJS)
