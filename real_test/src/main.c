@@ -8,8 +8,6 @@ int strlen_launcher(void);
 
 int main(void)
 {
-	ft_putstr_fd("main\n", 1);
-
 	strlen_launcher();
     return (0);
 }
