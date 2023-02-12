@@ -17,11 +17,18 @@ static void print_result(t_unit_test *testlist)
 		ft_putstr_fd("[KO]\n", 1);
 }
 
+static void free_node(t_unit_test *testlist)
+{
+	free(testlist->test_name);
+	free(testlist);
+}
+
 int launch_tests(t_unit_test **testlist)
 {
 	ft_putstr_fd("launch_tests\n", 1);
 	iter_list(*testlist, &do_test);
 	iter_list(*testlist, &print_result);
+	iter_list(*testlist, &free_node);
 	ft_putstr_fd("end launch_tests\n", 1);
 	return (0);
 }
