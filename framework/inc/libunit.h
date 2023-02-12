@@ -16,21 +16,21 @@ enum e_result
 {
 	OK,
 	KO,
-    sigsegv,
-    sigbus,
-    sigabrt,
-    sigfpe,
-    sigpip,
-    sigill,
-    unknown = -1
+	sigsegv,
+	sigbus,
+	sigabrt,
+	sigfpe,
+	sigpip,
+	sigill,
+	unknown = -1
 };
 typedef enum e_result t_result;
 
 /* structure unit_test */
 struct s_unit_test
 {
-  int    (*test_function)(void);
-  char    *test_name;
+  int	(*test_function)(void);
+  char	*test_name;
 
   enum e_result result;
 
