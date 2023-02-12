@@ -13,6 +13,12 @@
 NAME = realtest
 
 SRCS = main.c
+SRCS += 00_launcher.c
+SRCS += 01_a_test_function.c
+SRCS += 02_another_test_function.c
+#SRCS += function/00_launcher.c
+#SRCS += function/01_a_test_function.c
+#SRCS += function/02_another_test_function.c
 
 
 SRCS_DIR = src
@@ -57,7 +63,7 @@ debug: CFLAGS += $(DEBUG_CFLAGS)
 debug: fclean $(NAME)
 
 $(NAME): framework $(_OBJS)
-	@$(CC) $(_OBJS) ../framework/libunit.a  $(LFLAGS) -o $(NAME)
+	@$(CC) $(_OBJS) ../framework/libunit.a ../libft/libft.a $(LFLAGS) -o $(NAME)
 	@echo "$(_OK) $(NAME) \t\tcompiled"
 
 $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c
