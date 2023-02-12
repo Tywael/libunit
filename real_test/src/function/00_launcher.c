@@ -3,7 +3,7 @@
 int a_test_function(void);
 int another_test_function(void);
 
-int strlen_launcher(void)
+int function_launcher(void)
 {
 	t_unit_test *testlist = 0;
 

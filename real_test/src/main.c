@@ -4,10 +4,10 @@
 
 #include "libunit.h"
 
-int strlen_launcher(void);
+int function_launcher(void);
 
 int main(void)
 {
-	strlen_launcher();
+	function_launcher();
     return (0);
 }
