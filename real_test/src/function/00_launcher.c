@@ -10,5 +10,9 @@ int strlen_launcher(void)
 
 	load_test(&testlist, "a test function", &a_test_function);
 	load_test(&testlist, "another test function", &another_test_function);
+	load_test(&testlist, "a test function", &a_test_function);
+	load_test(&testlist, "another test function", &another_test_function);
+	load_test(&testlist, "a test function", &a_test_function);
+	load_test(&testlist, "another test function", &another_test_function);
 	return(launch_tests(&testlist));
 }
